@@ -1,6 +1,6 @@
 var React = require('react');
 var ReactDom = require('react-dom');
-var ArticlesData = require('./ArticlesData.json');
+var articlesData = require('./ArticlesData.js');
 
 var Button = React.createClass({
 	
@@ -23,31 +23,65 @@ var Button = React.createClass({
 		)
 	}
 });
-var Main = React.createClass({
+//
+// 3 rows
+// @ id
+// @ name
+// @ city
+//
+var Row = React.createClass({
+	
+  	handleClick: function(event) {
+    	//this.setState({liked: !this.state.liked});
+    	//alert('aww yeah')
+ 	},
 	render : function(){
-	var Buttonas = [
-      "Some Article",
-      "Some Other Article",
-      "Yet Another Article",
-      "Still More",
-      "Some Article",
-      "Some Other Article",
-      "Yet Another Article",
-      "Still More",
-      "Some Article",
-      "Some Other Article",
-      "Yet Another Article",
-      "Still More",
-    ].map((title, i) => <Button key={i} type="button" index={i} title={title} /> );
+		return(
+			//each component should be wrappend in one closed element, c
+			<tr onClick={this.handleClick} >
+	       		<td>{this.props.index}</td>
+	        	<td>{this.props.name}</td>
+	        	<td>{this.props.city}</td>
+      		</tr>
+		)
+	}
+});
 
-    console.log(ArticlesData);
+var Main = React.createClass({
+	// function mySortFunc(a, b, order){   //order is desc or asc
+	//     return a.count - b.count;
+	// }
+	render : function(){
+	var ButtLike = <Button type="button" title="like this" />;
+	console.log(articlesData)
+    var rows = articlesData.map((rowData, i) => <Row key={i} index={i} name={rowData.name} city={rowData.city} /> )
+    // .sort(function(a, b){
+    // 	if(a.props.title < b.props.title) return -1;
+    // 	if(a.props.title > b.props.title) return 1;
+    // 	return 0;
+    // });
 
-    Buttonas.push(<Button key={77} type="button" index={77} title={'adam lambert'} />);
+
+
+
+    //Buttonas.push(<Button key={77} type="button" index={77} title={'adam lambert'} />);
 
 		return(
 			<div  className="jumbotron text-center">
 				<h1>Welcome on the ReactJS tutorial</h1>
-				{Buttonas}
+				{ButtLike}
+				<table className="table table-hover">
+				    <thead>
+				      <tr>
+				        <th>Id</th>
+				        <th>Name</th>
+				        <th>Email</th>
+				      </tr>
+				    </thead>
+				    <tbody>
+				    	{rows}
+				    </tbody>
+				  </table>
 			</div>
 		)
 	}
