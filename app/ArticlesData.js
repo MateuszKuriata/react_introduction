@@ -19,7 +19,16 @@ module.exports = [
       name:'Kamil',
       city:'Kraków',
      },{
-      name:'Daniel',
+      name:'Agata',
       city:'Berlin'
+     },{
+      name:'Małgorzata',
+      city:'London'
+     },{
+      name:'Krystyna',
+      city:'Berlin'
+     },{
+      name:'Wojciech',
+      city:'Zagrzeb'
      }
     ];
