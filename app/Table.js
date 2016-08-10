@@ -7,17 +7,17 @@ var Row = React.createClass({
     	var Name = this.props.name;
     	var Id = this.props.index;
     	var city = this.props.city;
-    	alert('you click: '+ Name +' from '+city);//
+    	alert('you click: '+ Name +' from '+city);
 
  	},
 	render : function(){
 		return(
-			//each component should be wrappend in one closed element, c
+			//each component should be wrapped in one parent element
 			<tr onClick={this.handleClick} >
-	       		<td>{this.props.index}</td>
-	        	<td>{this.props.name}</td>
-	        	<td>{this.props.city}</td>
-      		</tr>
+     		<td>{this.props.index}</td>
+      	<td>{this.props.name}</td>
+      	<td>{this.props.city}</td>
+  		</tr>
 		)
 	}
 });
