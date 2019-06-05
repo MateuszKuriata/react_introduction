@@ -1,6 +1,6 @@
 # React Tutorial MKuriata
 
-This is the example ReactJS app
+This is the example ReactJS app for student exercises
 
 ## To use
 
